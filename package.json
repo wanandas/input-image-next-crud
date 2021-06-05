@@ -9,11 +9,23 @@
   },
   "dependencies": {
     "next": "10.2.3",
+    "axios": "^0.21.1",
     "react": "17.0.2",
+    "styled-components": "^5.2.1",
+    "framer-motion": "^3.1.1",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "@types/react": "17.0.8",
-    "typescript": "4.3.2"
+    "@types/styled-components": "^5.1.7",
+    "@typescript-eslint/eslint-plugin": "^4.11.1",
+    "@typescript-eslint/parser": "^4.11.1",
+    "eslint": "^7.17.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^7.1.0",
+    "prettier": "^2.2.1",
+    "typescript": "4.3.2",
+    "url-loader": "^4.1.1",
+    "babel-plugin-styled-components": "^1.12.0"
   }
 }
