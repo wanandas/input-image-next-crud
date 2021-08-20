@@ -1,19 +1,12 @@
 import { fetchWrapper, IUser } from 'helpers'
 import { NextPage } from 'next'
-import { useRouter } from 'next/dist/client/router'
-import { useEffect, useState } from 'react'
+import { useMemo } from 'react'
 import styled from 'styled-components'
-const Display: NextPage = () => {
-  const [users, setUsers] = useState<any[]>()
 
-  useEffect(() => {
-    ;(async () => {
-      console.log('loading')
-      const result: IUser[] = await fetchWrapper.get('api/users')
-      setUsers(result)
-      console.log('loading success!!')
-    })()
-  }, [fetchWrapper])
+const Display: NextPage = (props) => {
+  const users = useMemo(() => {
+    return props['users'] as IUser[]
+  }, [props])
 
   return (
     <Contain>
@@ -90,6 +83,14 @@ const Display: NextPage = () => {
       </div>
     </Contain>
   )
+}
+
+export async function getStaticProps() {
+  const users: IUser[] = await fetchWrapper.get('http://localhost:3000/api/graphql')
+
+  return {
+    props: { users }
+  }
 }
 
 export default Display
